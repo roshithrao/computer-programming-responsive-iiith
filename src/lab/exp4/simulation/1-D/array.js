@@ -71,7 +71,6 @@ window.view = {
 	},
 	generateRandomNumbers: function() {
 		var inputValue = this.getArraySize()
-		document.getElementById("userInput").disabled = true;
 		for ( i = 0 ; i < inputValue ; i++ ) {
 			var random = Math.floor(Math.random()*15)
 			this.numbers.push(String(random))
@@ -84,9 +83,8 @@ window.view = {
 	},
 	takeInputFromRadioBox: function() {
 		var element = document.getElementsByName('radio_group')
-		if ( element[0].checked ) 
-				this.generateRandomNumbers()
-		    
+		if ( element[0].checked )
+			this.generateRandomNumbers()
 		else if (element[1].checked)
 			this.getUserInput()
 	},
@@ -116,7 +114,7 @@ window.view = {
 		image.style.position = 'absolute'
 		image.style.left = left + 'px'
 		image.style.top = top  + 'px'
-		image.style.opacity = '0.7'
+		image.style.opacity = '0.5'
         image.className = 'arrowImage'
 		document.getElementById('sortingDiv').appendChild(image)
 	},
@@ -210,6 +208,7 @@ window.view = {
 		this.nextRedDiv = this.getNextDivToHighlight(this.lastRedDiv)
 		if ( this.lastRedDiv.id === 'line4' ) {
 			this.showElementAsSorted()
+			this.removeImage();
 			if ( this.i < this.numbers.length ) {
 				this.highlightNextStep()
 			}
@@ -223,6 +222,7 @@ window.view = {
 			this.highlightNextStep()
 			this.j = this.i - 1
 			this.key = this.numbers[this.i]
+			this.showImage()
 		}
 		else if ( this.lastRedDiv.id === 'line8' ) {
 			if ( this.j >= 0 && this.numbers[this.j] > this.key )
@@ -233,19 +233,19 @@ window.view = {
 			}
 		}		
 		else if ( this.lastRedDiv.id === 'line11' ) {
-			this.showImage()
+			//this.showImage()
 			this.swapText()
 			this.highlightNextStep()
 		}
 		else if ( this.lastRedDiv.id === 'line12' ) {
-			this.removeImage()
+			//this.removeImage()
 			this.nextRedDiv = this.jumpTo('line8')
 			this.highlightNextStep()
 			this.j --
 		}
 		else if ( this.lastRedDiv.id === 'line13' ) {
 			this.insertKey()
-			this.removeImage()
+			//this.removeImage()
 			this.highlightNextStep()
 		}
 		else if ( this.lastRedDiv.id === 'line14' ) {
