@@ -35,8 +35,10 @@ window.view = {
 			this.totalDisks = input
 			var elements = document.getElementById('1').childNodes
 			for ( i = 0 ; i < input ; i++ )
+			{
 				elements[i].className += ' ' + this.disks[i]
-		}
+			}
+		 }
 	},
 	changeClass: function(id, className) {
 		document.getElementById(id).className = className
