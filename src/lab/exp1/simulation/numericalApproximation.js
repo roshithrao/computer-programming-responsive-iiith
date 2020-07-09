@@ -290,8 +290,8 @@ window.view = {
 			alert('Enter numeric value of a and b');
 			return false;
 		} 
-		//integration limits are from 0 to 10 changed
-		else if (valueB2 > 10 || valueB2 < 1 || valueA2 >10 || valueA2 < 1) {
+		//integration limits are from 0 to 10 changed..
+		else if (valueA2 < 1 || valueA2 > 10 || valueB2 < 1 || valueB2 > 10) {
 			alert('invalid input');
 			return false;
 		}
